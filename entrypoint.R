@@ -1,3 +1,5 @@
-git add entrypoint.R
-git commit -m "Fix: use dynamic port for Render"
-git push
+source("plumber_api_results.R")
+pr$run(
+  host = "0.0.0.0",
+  port = as.numeric(Sys.getenv("PORT", 8000))
+)
